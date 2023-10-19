@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="icon.png" />
+    <title>startpage</title>
+    <style>
+      @font-face {
+        font-family: FiraCode;
+        src: url("FiraCode-Regular.ttf");
+      }
+
+      @font-face {
+        font-family: FiraCodeMedium;
+        src: url("FiraCode-Medium.ttf");
+      }
+
+      @font-face {
+        font-family: FiraCodeSemi;
+        src: url("FiraCode-SemiBold.ttf");
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #252422;
+        /* background-image: url(PC_black.png); */
+        font-family: "FiraCode";
+        color: #fffcf2;
+        text-align: center;
+      }
+
+      #clock {
+        margin-top: 250px;
+        font-family: FiraCodeSemi;
+        font-size: 120px;
+      }
+
+      #links {
+        display: flex;
+        justify-content: center;
+      }
+
+      #links div {
+        text-align: left;
+        margin: 50px;
+        font-size: 40px;
+      }
+
+      a {
+        text-decoration: none;
+        color: #ccc5b9;
+      }
+
+      a:hover {
+        transition: 0.5s;
+        text-decoration: none;
+        color: #eb5e28;
+      }
+
+      input {
+        background-color: #222120;
+        box-shadow: 24px 22px 23px -8px rgba(0, 0, 0, 1);
+        width: 700px;
+        height: 35px;
+        font-family: FiraCode;
+        font-size: 25px;
+        color: #fffcf2;
+        text-align: center;
+        border: none;
+        outline: none;
+        border-radius: 10px;
+      }
+
+      input::placeholder {
+        text-align: center;
+        color: #403d39;
+      }
+
+      .lnks a {
+        /* display: inline-block; */
+        display: inline-block;
+        position: relative;
+        cursor: pointer;
+      }
+
+      .lnks a::before {
+        content: "";
+        position: absolute;
+        width: 90px;
+        transform: scaleX(0);
+        height: 3px;
+        bottom: 0;
+        left: 0;
+        background-color: #ccc5b9;
+        /* background-color: #eb5e28; */
+        transform-origin: bottom right;
+        transition: transform 0.1s ease-out;
+        border-radius: 10px;
+      }
+
+      .lnks a:hover::before {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
+
+      .lnks a:after {
+        content: "";
+        position: absolute;
+        width: 90px;
+        transform: scaleX(0);
+        height: 3px;
+        bottom: 0;
+        left: 0;
+        background-color: #eb5e28;
+        /* background-color: #eb5e28; */
+        transform-origin: bottom right;
+        transition: transform 0.3s ease-out;
+        border-radius: 10px;
+      }
+
+      .lnks a:hover::after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="clock">
+      <div
+        id="MyClockDisplay"
+        class="clock"
+        onload="showTime()"
+        style="text-shadow: 11px 9px 10px rgba(0, 0, 0, 0.939)"
+      ></div>
+      <p style="font-family: FiraCode; font-size: 20px; color: #eb5e28">
+        the only source of knowledge is experience
+      </p>
+    </div>
+    <div id="search">
+      <form action="https://www.google.com/search" method="GET">
+        <input
+          type="text"
+          name="q"
+          id="src"
+          placeholder="search"
+          autocomplete="off"
+        />
+      </form>
+    </div>
+    <div id="links">
+      <div class="lnks">
+        <a href="https://www.youtube.com/">youtube</a><br />
+        <a href="https://docs.google.com/spreadsheets/u/0/?tgif=d">tables</a
+        ><br />
+        <a href="https://docs.google.com/document/u/0/?tgif=d">docs</a><br />
+        <a href="https://mail.google.com/mail/u/0/?pli=1#inbox">gmail</a><br />
+      </div>
+      <div class="lnks">
+        <a href="https://github.com/">github</a><br />
+        <a href="https://chat.openai.com/chat">chatgpt</a><br />
+        <a href="https://www.virustotal.com/gui/home/upload">virustotal</a
+        ><br />
+        <a href="https://www.deepl.com/ru/translator">deepl</a><br />
+      </div>
+      <div class="lnks">
+        <a href="https://www.twitch.tv/">twitch</a><br />
+        <a href="https://dropmefiles.com/">dropmefiles</a><br />
+        <a href="https://monkeytype.com/">monkeytype</a><br />
+        <a href="https://twitter.com/home">twitter</a><br />
+      </div>
+      <div class="lnks">
+        <a
+          href="https://e.mail.ru/inbox/?app_id_mytracker=58519&authid=leb6c1e2.wmt&back=1%2C1&dwhsplit=s10273.b1ss12743s&from=login%2Cnavi&x-login-auth=1&afterReload=1
+        "
+          >mail.ru</a
+        ><br />
+        <a href="https://vk.com/im">vk</a><br />
+        <a
+          href="https://store.steampowered.com/?l=russian
+        "
+          >steam</a
+        ><br />
+        <a href="https://www.reddit.com/">reddit</a><br />
+      </div>
+    </div>
+    <script>
+      function showTime() {
+        var date = new Date();
+        var h = date.getHours();
+        var m = date.getMinutes();
+        var s = date.getSeconds();
+        h = h < 10 ? "0" + h : h;
+        m = m < 10 ? "0" + m : m;
+        s = s < 10 ? "0" + s : s;
+        var time = h + ":" + m + ":" + s;
+        document.getElementById("MyClockDisplay").innerText = time;
+        document.getElementById("MyClockDisplay").textContent = time;
+        setTimeout(showTime, 1000);
+      }
+      showTime();
+      const inputElement = document.getElementById("src");
+      inputElement.focus();
+    </script>
+  </body>
+</html>
